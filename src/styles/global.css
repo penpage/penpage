@@ -1,0 +1,67 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+ * resize-animation-stopper
+ * 旋轉 / resize 期間全域關閉 transition / animation
+ * 避免 MQ 切換造成 panel 滑出閃現等 transition bug
+ * 參考：https://css-tricks.com/stop-animations-during-window-resizing/
+ * ========================================== */
+.resize-animation-stopper *,
+.resize-animation-stopper *::before,
+.resize-animation-stopper *::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+  transition-delay: 0s !important;
+}
+
+/* 禁止雙擊縮放（所有平台有效），不影響正常 scroll/pan */
+html {
+  touch-action: manipulation;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-editor, #1a332a);
+  color: var(--text-primary, #f5f0dc);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Loading Spinner Styles */
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Take full height of parent */
+  width: 100%; /* Take full width of parent */
+  background-color: transparent; /* 改為透明，避免深色主題閃白 */
+  position: absolute; /* Cover the content */
+  top: 0;
+  left: 0;
+  z-index: 10; /* Ensure it's above content */
+}
+
+.loading-spinner {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

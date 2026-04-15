@@ -1,0 +1,62 @@
+# ==========================================
+# Open PenPage 生產環境 Docker Compose
+# ==========================================
+# 用途：自架部署（前端 only，無後端 API）
+# 端口：80 (HTTP), 443 (HTTPS)
+# SSL：自簽或 Let's Encrypt
+# ==========================================
+
+services:
+  penpage:
+    build:
+      context: .
+      dockerfile: Dockerfile.prod
+    image: open-ppage:latest
+    container_name: open-ppage-production
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    environment:
+      - NODE_ENV=production
+
+    volumes:
+      # SSL 證書（依環境選擇）
+      # 自簽：./ssl/cert.pem, ./ssl/key.pem
+      # Let's Encrypt：/etc/letsencrypt/live/your-domain/fullchain.pem, privkey.pem
+      - ./ssl/cert.pem:/etc/nginx/ssl/cert.pem:ro
+      - ./ssl/key.pem:/etc/nginx/ssl/key.pem:ro
+
+      # Nginx 配置
+      - ./nginx.prod.conf:/etc/nginx/conf.d/default.conf:ro
+
+      # Nginx 日誌
+      - ./logs/nginx:/var/log/nginx
+
+    cap_drop:
+      - ALL
+    cap_add:
+      - NET_BIND_SERVICE
+      - CHOWN
+      - SETGID
+      - SETUID
+    security_opt:
+      - no-new-privileges:true
+
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/manifest.webmanifest"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    deploy:
+      resources:
+        limits:
+          cpus: '0.8'
+          memory: 512M
+        reservations:
+          cpus: '0.2'
+          memory: 128M

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service - PenPage</title>
+  <link rel="canonical" href="https://penpage.com/terms.html" />
+  <meta name="description" content="PenPage Terms of Service - Privacy-first note-taking application terms and conditions.">
+  <link rel="icon" type="image/png" href="/ppage2.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* 綠色黑板主題 - 基於 themes.ts blackboard */
+    body {
+      min-height: 100vh;
+      background: #1a332a;
+      padding: 2rem 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #2d4a3e;
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      line-height: 1.7;
+      color: #f5f0dc;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .brand span {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f5d76e;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f5f0dc;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #f5d76e;
+      padding-bottom: 1rem;
+    }
+
+    .last-updated {
+      color: #8a8578;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #f5f0dc;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #f5d76e;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #c4bfb0;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    section { margin-bottom: 2rem; }
+
+    p {
+      color: #c4bfb0;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    ul, ol {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      color: #c4bfb0;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    li strong {
+      color: #f5f0dc;
+      font-weight: 600;
+    }
+
+    a {
+      color: #f5d76e;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #f5f0dc;
+      border-bottom-color: #f5d76e;
+    }
+
+    /* Summary Box */
+    .summary {
+      background: linear-gradient(135deg, #c9b44c 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+      color: white;
+    }
+
+    .summary h2 {
+      color: white;
+      border-left: 4px solid white;
+      margin-top: 0;
+    }
+
+    .summary-box p {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-box p strong {
+      color: white;
+      font-weight: 600;
+      background: linear-gradient(120deg, rgba(79, 70, 229, 0.35) 0%, rgba(79, 70, 229, 0.35) 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 40%;
+      background-position: 0 85%;
+      padding: 0 0.2rem;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #4a5d54;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Header with back button */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 0 12px;
+      height: 32px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: #d5d0bc;
+      color: #3d5a4c;
+      border: 1px solid #4a5d54;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .header-back:hover {
+      background: #f5f0dc;
+      color: #3d5a4c;
+      border-color: #3d5a4c;
+      box-shadow: 0 2px 8px rgba(245, 240, 220, 0.6);
+    }
+
+    .header-back svg {
+      flex-shrink: 0;
+      stroke-width: 2.5;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 2rem 1.5rem; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .nav { justify-content: flex-start; }
+      .nav .header-back { width: auto; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="/" class="header-back">
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+        </svg>
+        Back
+      </a>
+      <div class="brand">
+        <img src="/ppage2.png" alt="PenPage">
+        <span>PenPage</span>
+      </div>
+    </div>
+    <h1>PenPage Terms of Service</h1>
+    <p class="last-updated">Last Updated: January 2025</p>
+
+    <section>
+      <h2>Welcome to PenPage</h2>
+      <p>
+        These Terms of Service ("Terms") govern your use of PenPage (the "Service"), a privacy-first
+        note-taking application accessible at penpage.com. By using PenPage, you agree to these Terms.
+        If you don't agree, please don't use the Service.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing or using PenPage, you confirm that:</p>
+      <ul>
+        <li>You are at least 13 years old (or the age of digital consent in your country)</li>
+        <li>You have the legal capacity to enter into these Terms</li>
+        <li>You will use the Service in compliance with all applicable laws</li>
+        <li>You agree to our <a href="/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Description of Service</h2>
+      <p>PenPage is a web-based note-taking application that:</p>
+      <ul>
+        <li>Stores your notes locally in your browser by default (using IndexedDB)</li>
+        <li>Optionally syncs your notes to your personal Google Drive account</li>
+        <li>Allows you to create, edit, organize, and export notes in Markdown format</li>
+        <li>Provides a WYSIWYG (What You See Is What You Get) and Markdown editor</li>
+        <li>Works offline without requiring an account or login</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Your Use of PenPage</h2>
+      <h3>3.1 Permitted Use</h3>
+      <p>You may use PenPage for:</p>
+      <ul>
+        <li>Personal note-taking, journaling, and idea capture</li>
+        <li>Professional documentation and writing</li>
+        <li>Educational purposes and research notes</li>
+        <li>Any lawful purpose that respects these Terms</li>
+      </ul>
+
+      <h3>3.2 Prohibited Use</h3>
+      <p>You agree NOT to:</p>
+      <ul>
+        <li>Use PenPage for any illegal activities or to store illegal content</li>
+        <li>Attempt to hack, reverse-engineer, or compromise the Service</li>
+        <li>Use automated tools (bots, scrapers) to access PenPage without permission</li>
+        <li>Store malicious code, viruses, or harmful content</li>
+        <li>Violate others' intellectual property rights</li>
+        <li>Use PenPage to harass, abuse, or harm others</li>
+        <li>Impersonate others or misrepresent your affiliation</li>
+        <li>Overload or interfere with the Service's infrastructure</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Your Content and Data</h2>
+      <h3>4.1 Ownership</h3>
+      <p>
+        <strong>You own your content.</strong> All notes, text, images, and other content you create
+        in PenPage belong to you. We claim no ownership rights over your content.
+      </p>
+
+      <h3>4.2 Your Responsibility</h3>
+      <p>You are solely responsible for:</p>
+      <ul>
+        <li>The content you create and store in PenPage</li>
+        <li>Backing up your important notes (via export or cloud sync)</li>
+        <li>Ensuring your content complies with applicable laws</li>
+        <li>Any consequences of sharing or exporting your notes</li>
+      </ul>
+
+      <h3>4.3 Data Storage and Backup</h3>
+      <p><strong>Important:</strong> Because PenPage stores data locally in your browser by default:</p>
+      <ul>
+        <li>Clearing browser data will delete your notes</li>
+        <li>Uninstalling your browser may delete your notes</li>
+        <li>Using browser "incognito/private" mode may prevent saving notes</li>
+        <li><strong>We recommend regularly exporting important notes or enabling cloud sync</strong></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. No Account Required</h2>
+      <p>PenPage does not require account creation. However:</p>
+      <ul>
+        <li>Your notes are tied to your browser and device</li>
+        <li>We cannot recover notes if you lose access to your browser/device</li>
+        <li>If you enable Google Drive sync, you use your Google account (subject to Google's terms)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Google Drive Integration (Optional)</h2>
+      <p>If you choose to enable Google Drive sync:</p>
+      <ul>
+        <li>You must have a valid Google account</li>
+        <li>You grant PenPage permission to read/write files in a dedicated folder on your Google Drive</li>
+        <li>You can revoke this permission anytime via Google Account settings</li>
+        <li>Google's Terms of Service and Privacy Policy apply to data stored in Google Drive</li>
+        <li>We are not responsible for Google Drive service availability or data loss</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Service Availability</h2>
+      <h3>7.1 "As-Is" Service</h3>
+      <p>PenPage is provided "as-is" and "as available." We strive for reliability but:</p>
+      <ul>
+        <li>We do not guarantee 100% uptime or error-free operation</li>
+        <li>The Service may be temporarily unavailable for maintenance or updates</li>
+        <li>We may modify, suspend, or discontinue features at any time</li>
+      </ul>
+
+      <h3>7.2 Offline Functionality</h3>
+      <p>
+        Because PenPage works offline, you can continue using it even if our servers are down
+        (as long as you've previously loaded the app in your browser).
+      </p>
+    </section>
+
+    <section>
+      <h2>8. Intellectual Property</h2>
+      <h3>8.1 PenPage's IP</h3>
+      <p>
+        The PenPage application, design, code, logos, and trademarks are owned by PenPage or
+        licensed to us. You may not:
+      </p>
+      <ul>
+        <li>Copy, modify, or distribute PenPage's code (unless open-source license applies)</li>
+        <li>Use PenPage's name or logo without permission</li>
+        <li>Create derivative works without authorization</li>
+      </ul>
+
+      <h3>8.2 Open Source Components</h3>
+      <p>
+        PenPage uses open-source libraries (React, Tiptap, etc.). Those components are governed
+        by their respective licenses. See our GitHub repository for full attribution.
+      </p>
+
+      <h3>8.3 Source Code License</h3>
+      <p>
+        PenPage's source code is available under the GNU Affero General Public License v3 (AGPL-3.0).
+        This means:
+      </p>
+      <ul>
+        <li>You may view, modify, and distribute the source code under AGPL terms</li>
+        <li>If you modify and deploy PenPage as a service, you must release your modifications under AGPL</li>
+        <li>For commercial use without AGPL obligations, commercial licenses are available</li>
+        <li>Contact <a href="mailto:licensing@penpage.com">licensing@penpage.com</a> for commercial licensing inquiries</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>9. Privacy and Data Protection</h2>
+      <p>
+        Your privacy is critical to us. Please review our <a href="/privacy.html">Privacy Policy</a> to
+        understand how we handle your data. Key points:
+      </p>
+      <ul>
+        <li>Local-first storage (your notes stay in your browser by default)</li>
+        <li>We don't read, analyze, or sell your notes</li>
+        <li>Cloud sync is optional and controlled by you</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>10. Disclaimers and Limitations of Liability</h2>
+      <h3>10.1 No Warranties</h3>
+      <p>To the fullest extent permitted by law:</p>
+      <ul>
+        <li>PenPage is provided WITHOUT WARRANTIES of any kind (express or implied)</li>
+        <li>We do NOT warrant that the Service will be error-free or secure</li>
+        <li>We do NOT guarantee that your data will never be lost (backup your important notes!)</li>
+      </ul>
+
+      <h3>10.2 Limitation of Liability</h3>
+      <p>To the fullest extent permitted by law:</p>
+      <ul>
+        <li>PenPage and its creators are NOT liable for any data loss, damages, or losses arising from your use of the Service</li>
+        <li>This includes indirect, incidental, consequential, or punitive damages</li>
+        <li>If liability cannot be excluded, it is limited to the amount you paid us (which is $0 for free users)</li>
+      </ul>
+
+      <h3>10.3 Your Responsibility</h3>
+      <p><strong>You accept that:</strong></p>
+      <ul>
+        <li>You use PenPage at your own risk</li>
+        <li>You are responsible for backing up critical notes</li>
+        <li>We are not liable if browser storage is cleared or lost</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>11. Indemnification</h2>
+      <p>
+        You agree to indemnify and hold PenPage harmless from any claims, damages, or expenses
+        arising from:
+      </p>
+      <ul>
+        <li>Your violation of these Terms</li>
+        <li>Your content or use of the Service</li>
+        <li>Your violation of any third-party rights</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>12. Termination</h2>
+      <h3>12.1 By You</h3>
+      <p>You can stop using PenPage at any time. To fully "delete your account":</p>
+      <ul>
+        <li>Clear browser data to remove local notes</li>
+        <li>Delete synced files from Google Drive (if applicable)</li>
+      </ul>
+
+      <h3>12.2 By Us</h3>
+      <p>We reserve the right to suspend or terminate access to PenPage if:</p>
+      <ul>
+        <li>You violate these Terms</li>
+        <li>Your use harms the Service or other users</li>
+        <li>Required by law</li>
+      </ul>
+      <p>
+        (Note: Because data is stored locally, we cannot delete your notes—you control that.)
+      </p>
+    </section>
+
+    <section>
+      <h2>13. Changes to Terms</h2>
+      <p>We may update these Terms occasionally. When we do:</p>
+      <ul>
+        <li>We'll update the "Last Updated" date</li>
+        <li>We'll notify users of significant changes via in-app notification</li>
+        <li>Continued use after changes means you accept the updated Terms</li>
+        <li>If you don't agree, please stop using PenPage</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>14. Governing Law and Disputes</h2>
+      <h3>14.1 Governing Law</h3>
+      <p>
+        These Terms are governed by the laws of [Your Jurisdiction], without regard to conflict of law provisions.
+      </p>
+
+      <h3>14.2 Dispute Resolution</h3>
+      <p>If you have a dispute with PenPage:</p>
+      <ul>
+        <li><strong>First, contact us:</strong> We'll try to resolve issues amicably (email: support@penpage.com)</li>
+        <li><strong>Informal resolution:</strong> Most issues can be resolved through discussion</li>
+        <li><strong>Arbitration/Courts:</strong> If needed, disputes will be resolved via [specify arbitration or court jurisdiction]</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>15. Miscellaneous</h2>
+      <ul>
+        <li><strong>Entire Agreement:</strong> These Terms and our Privacy Policy constitute the entire agreement between you and PenPage</li>
+        <li><strong>Severability:</strong> If any provision is found invalid, the rest of the Terms remain in effect</li>
+        <li><strong>No Waiver:</strong> Our failure to enforce a right doesn't waive that right</li>
+        <li><strong>Assignment:</strong> You cannot transfer these Terms; we may assign them to successors</li>
+        <li><strong>Contact:</strong> Questions? Email support@penpage.com</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>16. Contact Information</h2>
+      <p>For questions about these Terms:</p>
+      <ul>
+        <li><strong>Email:</strong> support@penpage.com</li>
+        <li><strong>Support:</strong> support@penpage.com</li>
+        <li><strong>GitHub:</strong> <a href="https://github.com/nicepage" target="_blank" rel="noopener noreferrer">github.com/nicepage</a></li>
+      </ul>
+    </section>
+
+    <section class="summary">
+      <h2>Terms Summary (Not Legally Binding)</h2>
+      <div class="summary-box">
+        <p><strong>You own your data</strong> – All your notes belong to you</p>
+        <p><strong>Backup is your responsibility</strong> – Export or sync important notes</p>
+        <p><strong>Don't do illegal stuff</strong> – Use PenPage lawfully and respectfully</p>
+        <p><strong>No lock-in</strong> – Export your notes anytime in open formats</p>
+        <p><strong>Use at your own risk</strong> – We provide the tool, you control the data</p>
+      </div>
+    </section>
+
+    <div class="nav">
+      <a href="/" class="header-back">
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+        </svg>
+        Back
+      </a>
+    </div>
+  </div>
+</body>
+</html>

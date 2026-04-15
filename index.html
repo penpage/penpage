@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/ppage2.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- Primary Meta Tags -->
+    <title>PenPage — AI meets Markdown</title>
+    <link rel="canonical" href="https://penpage.com/" />
+    <meta name="title" content="PenPage — AI meets Markdown" />
+    <meta name="description" content="AI meets Markdown. You need PenPage. Real WYSIWYG Markdown editor — write beautifully, stay private, go anywhere. Edit CLAUDE.md, AI prompts, and notes with local-first storage. Free, no sign-up." />
+    <meta name="keywords" content="AI markdown editor, CLAUDE.md editor, WYSIWYG markdown, AI agent config, cursor rules editor, private notes, local-first, offline editor, PWA note app, file link markdown, penpage" />
+    <meta name="author" content="PenPage" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://penpage.com/" />
+    <meta property="og:title" content="PenPage — AI meets Markdown" />
+    <meta property="og:description" content="AI meets Markdown. You need PenPage. Real WYSIWYG Markdown editor — write beautifully, stay private, go anywhere. Edit CLAUDE.md, AI prompts, and notes with local-first storage. Free, no sign-up." />
+    <meta property="og:image" content="https://penpage.com/ppage2.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://penpage.com/" />
+    <meta property="twitter:title" content="PenPage — AI meets Markdown" />
+    <meta property="twitter:description" content="AI meets Markdown. You need PenPage. Real WYSIWYG Markdown editor — write beautifully, stay private, go anywhere. Edit CLAUDE.md, AI prompts, and notes with local-first storage. Free, no sign-up." />
+    <meta property="twitter:image" content="https://penpage.com/ppage2.png" />
+
+    <!-- PWA -->
+    <meta name="theme-color" content="#4F46E5" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="PenPage" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180.png" sizes="180x180" />
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PenPage",
+      "url": "https://penpage.com",
+      "description": "AI meets Markdown. You need PenPage. Real WYSIWYG Markdown editor — write beautifully, stay private, go anywhere. Edit CLAUDE.md, AI prompts, and notes with local-first storage. Free, no sign-up.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web Browser, Windows, macOS, Linux, iOS, Android",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "featureList": [
+        "Real WYSIWYG Markdown Editor",
+        "File Link (Bidirectional .md Sync)",
+        "Local-First Storage (IndexedDB)",
+        "PWA Offline Access",
+        "No Account Required"
+      ],
+      "screenshot": "https://penpage.com/ppage2.png",
+      "softwareVersion": "1.0"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PenPage",
+      "url": "https://penpage.com",
+      "logo": "https://penpage.com/ppage2.png"
+    }
+    </script>
+    <!-- 預設隱藏靜態 landing，避免 SPA 載入時閃爍 -->
+    <style>
+      #static-landing, #static-footer { display: none; }
+    </style>
+    <noscript>
+      <style>#static-landing, #static-footer { display: block !important; }</style>
+    </noscript>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+
+    <!-- Static landing content for search engine crawlers -->
+    <!-- Hidden automatically when React loads via init.js -->
+    <div id="static-landing" style="max-width: 800px; margin: 0 auto; padding: 2rem 1.5rem; font-family: system-ui, -apple-system, sans-serif; color: #1a202c; line-height: 1.7;">
+      <header style="text-align: center; margin-bottom: 2rem;">
+        <img src="/ppage2.png" alt="PenPage" width="64" height="64" style="border-radius: 12px;" />
+        <h1 style="font-size: 2rem; margin: 0.5rem 0;">PenPage — AI meets Markdown</h1>
+        <p style="font-size: 1.2rem; color: #718096;">Write beautifully. Stay private. Go anywhere. Free, no sign-up.</p>
+      </header>
+
+      <section>
+        <h2>Why PenPage?</h2>
+        <p>PenPage is a privacy-first note-taking app that keeps your data on your device — not on our servers. Write in real WYSIWYG Markdown with instant formatting, no split-pane preview needed.</p>
+        <ul>
+          <li><strong>Privacy First</strong> — Your notes are stored locally in your browser using IndexedDB. We never see, access, or store your content.</li>
+          <li><strong>Real WYSIWYG Markdown</strong> — Type Markdown and see beautifully formatted results instantly. Headings, bold, italic, code blocks, lists, and more — all rendered in real time.</li>
+          <li><strong>No Account Required</strong> — Start writing immediately. No sign-up, no email verification, no passwords.</li>
+          <li><strong>Completely Free</strong> — No ads, no subscriptions, no premium tiers. Every feature is available to everyone.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Features</h2>
+        <ul>
+          <li><strong>Real WYSIWYG Markdown Editing</strong> — Type naturally with Markdown shortcuts and see formatted output as you write. Supports headings, bold, italic, strikethrough, code blocks, lists, links, images, and more.</li>
+          <li><strong>Local-First Storage</strong> — All data stored in your browser's IndexedDB. Works without internet, loads instantly, and your notes are always available.</li>
+          <li><strong>PWA &amp; Offline Support</strong> — Install PenPage as an app on any device. Works fully offline.</li>
+          <li><strong>Folders &amp; Workspaces</strong> — Organize your notes with a flexible folder hierarchy and multiple workspaces.</li>
+          <li><strong>Export &amp; Backup</strong> — Export your notes anytime as Markdown files or full backups. Your data is never locked in.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>PenPage vs Other Note-Taking Apps</h2>
+        <p>Unlike cloud-based note apps like Notion, Google Keep, or Evernote, PenPage stores everything locally on your device. There's no server that can be breached, no company that can read your notes, and no subscription that can expire. If you value privacy and own your data, PenPage is built for you.</p>
+        <p>Compared to Obsidian, PenPage offers a true WYSIWYG experience — you see formatted text as you type, with no separate preview pane. And unlike most Markdown editors, PenPage works entirely in your browser with zero installation required.</p>
+      </section>
+
+      <section>
+        <h2>Get Started</h2>
+        <p>PenPage works right in your browser — no download or account needed. Just open <a href="https://penpage.com">penpage.com</a> and start writing.</p>
+        <p>For more information, visit our <a href="/help.html">Help &amp; FAQ</a> page.</p>
+      </section>
+
+      <nav style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+        <a href="/help.html" style="margin-right: 1rem;">Help &amp; FAQ</a>
+        <a href="/privacy.html" style="margin-right: 1rem;">Privacy Policy</a>
+        <a href="/terms.html">Terms of Service</a>
+      </nav>
+    </div>
+
+    <!-- Static footer for Google crawler (OAuth verification) -->
+    <!-- Hidden automatically when React loads -->
+    <footer id="static-footer" style="text-align: center; padding: 20px; font-family: system-ui, sans-serif; background: #1a1a1a; color: #888;">
+      <a href="/help.html" style="color: #888;">Help</a> |
+      <a href="/privacy.html" style="color: #888;">Privacy Policy</a> |
+      <a href="/terms.html" style="color: #888;">Terms of Service</a>
+    </footer>
+
+    <!-- 外部化腳本，移除 CSP unsafe-inline 需求 -->
+    <script src="/init.js"></script>
+  </body>
+</html>

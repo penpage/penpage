@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Third-Party Licenses - PenPage</title>
+  <link rel="canonical" href="https://penpage.com/licenses.html" />
+  <meta name="description" content="PenPage Third-Party Licenses - Open-source libraries and their licenses used in PenPage.">
+  <link rel="icon" type="image/png" href="/ppage2.png">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* 綠色黑板主題 - 基於 themes.ts blackboard */
+    body {
+      min-height: 100vh;
+      background: #1a332a;
+      padding: 2rem 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #2d4a3e;
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      line-height: 1.7;
+      color: #f5f0dc;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .brand span {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f5d76e;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f5f0dc;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #f5d76e;
+      padding-bottom: 1rem;
+    }
+
+    .last-updated {
+      color: #8a8578;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #f5f0dc;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #f5d76e;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #c4bfb0;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    section { margin-bottom: 2rem; }
+
+    p {
+      color: #c4bfb0;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      color: #c4bfb0;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    li strong {
+      color: #f5f0dc;
+      font-weight: 600;
+    }
+
+    a {
+      color: #f5d76e;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #f5f0dc;
+      border-bottom-color: #f5d76e;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 0.75rem;
+      border-bottom: 1px solid #4a5d54;
+      color: #c4bfb0;
+    }
+
+    th {
+      background: #3d5a4c;
+      font-weight: 600;
+      color: #f5f0dc;
+    }
+
+    tr:hover {
+      background: #3d5a4c;
+    }
+
+    .license-badge {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .license-mit {
+      background: rgba(34, 197, 94, 0.2);
+      color: #22c55e;
+    }
+
+    .license-apache {
+      background: rgba(59, 130, 246, 0.2);
+      color: #60a5fa;
+    }
+
+    .note {
+      background: #3d5a4c;
+      border-left: 4px solid #f5d76e;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .note p {
+      margin-bottom: 0;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #4a5d54;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* Header with back button */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 0 12px;
+      height: 32px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: #d5d0bc;
+      color: #3d5a4c;
+      border: 1px solid #4a5d54;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .header-back:hover {
+      background: #f5f0dc;
+      color: #3d5a4c;
+      border-color: #3d5a4c;
+      box-shadow: 0 2px 8px rgba(245, 240, 220, 0.6);
+    }
+
+    .header-back svg {
+      flex-shrink: 0;
+      stroke-width: 2.5;
+    }
+
+    @media (max-width: 768px) {
+      .container { padding: 2rem 1.5rem; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.5rem; }
+      .nav { justify-content: flex-start; }
+      .nav .header-back { width: auto; }
+      table { font-size: 0.9rem; }
+      th, td { padding: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="/" class="header-back">
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+        </svg>
+        Back
+      </a>
+      <div class="brand">
+        <img src="/ppage2.png" alt="PenPage">
+        <span>PenPage</span>
+      </div>
+    </div>
+    <h1>Third-Party Licenses</h1>
+    <p class="last-updated">Last Updated: March 2025</p>
+
+    <section>
+      <h2>Open Source Acknowledgments</h2>
+      <p>PenPage is built with the help of many excellent open-source libraries. We are grateful to the developers and communities behind these projects. This page lists the major dependencies and their licenses.</p>
+    </section>
+
+    <section>
+      <h2>Core Dependencies</h2>
+
+      <h3>Editor</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>License</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://tiptap.dev/" target="_blank" rel="noopener noreferrer">@tiptap/*</a></td>
+            <td><span class="license-badge license-mit">MIT</span></td>
+            <td>Headless WYSIWYG editor framework</td>
+          </tr>
+          <tr>
+            <td><a href="https://prosemirror.net/" target="_blank" rel="noopener noreferrer">prosemirror-*</a></td>
+            <td><span class="license-badge license-mit">MIT</span></td>
+            <td>Underlying editor toolkit</td>
+          </tr>
+          <tr>
+            <td><a href="https://github.com/markdown-it/markdown-it" target="_blank" rel="noopener noreferrer">markdown-it</a></td>
+            <td><span class="license-badge license-mit">MIT</span></td>
+            <td>Markdown parser</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>UI Framework</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>License</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://react.dev/" target="_blank" rel="noopener noreferrer">react / react-dom</a></td>
+            <td><span class="license-badge license-mit">MIT</span></td>
+            <td>UI component library</td>
+          </tr>
+          <tr>
+            <td><a href="https://dndkit.com/" target="_blank" rel="noopener noreferrer">@dnd-kit/*</a></td>
+            <td><span class="license-badge license-mit">MIT</span></td>
+            <td>Drag and drop toolkit</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Utilities</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>License</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://github.com/cure53/DOMPurify" target="_blank" rel="noopener noreferrer">dompurify</a></td>
+            <td><span class="license-badge license-apache">Apache-2.0</span></td>
+            <td>XSS sanitizer for HTML</td>
+          </tr>
+          <tr>
+            <td><a href="https://stuk.github.io/jszip/" target="_blank" rel="noopener noreferrer">jszip</a></td>
+            <td><span class="license-badge license-mit">MIT</span></td>
+            <td>ZIP file creation and extraction</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Development Dependencies</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Package</th>
+            <th>License</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><a href="https://vitejs.dev/" target="_blank" rel="noopener noreferrer">vite</a></td>
+            <td><span class="license-badge license-mit">MIT</span></td>
+            <td>Build tool and dev server</td>
+          </tr>
+          <tr>
+            <td><a href="https://www.typescriptlang.org/" target="_blank" rel="noopener noreferrer">typescript</a></td>
+            <td><span class="license-badge license-apache">Apache-2.0</span></td>
+            <td>TypeScript compiler</td>
+          </tr>
+          <tr>
+            <td><a href="https://playwright.dev/" target="_blank" rel="noopener noreferrer">playwright</a></td>
+            <td><span class="license-badge license-apache">Apache-2.0</span></td>
+            <td>End-to-end testing framework</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Dual-Licensed Packages</h2>
+      <p>Some packages are available under multiple licenses. We have chosen the following licenses for use in PenPage:</p>
+
+      <div class="note">
+        <p><strong>DOMPurify</strong> (MPL-2.0 OR Apache-2.0): We use DOMPurify under the <strong>Apache-2.0</strong> license.</p>
+      </div>
+
+      <div class="note">
+        <p><strong>JSZip</strong> (MIT OR GPL-3.0+): We use JSZip under the <strong>MIT</strong> license.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>License Texts</h2>
+      <p>Full license texts can be found in the respective package repositories or at the following locations:</p>
+      <ul>
+        <li><a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a></li>
+        <li><a href="https://www.apache.org/licenses/LICENSE-2.0" target="_blank" rel="noopener noreferrer">Apache License 2.0</a></li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>PenPage License</h2>
+      <p>PenPage itself is available under a dual license:</p>
+
+      <h3>Open Source License (AGPL-3.0)</h3>
+      <p>PenPage's source code is available under the <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener noreferrer">GNU Affero General Public License v3.0 (AGPL-3.0)</a>. This means:</p>
+      <ul>
+        <li>You may view, modify, and distribute the source code under AGPL terms</li>
+        <li>If you modify and deploy PenPage as a network service, you must release your modifications under AGPL</li>
+        <li>Attribution is required when redistributing</li>
+      </ul>
+
+      <h3>Commercial License</h3>
+      <p>For commercial use without AGPL obligations, commercial licenses are available. Contact <a href="mailto:licensing@penpage.com">licensing@penpage.com</a> for inquiries.</p>
+    </section>
+
+    <section>
+      <h2>Questions</h2>
+      <p>If you have questions about our use of open-source software or licensing, please contact us at <a href="mailto:legal@penpage.com">legal@penpage.com</a>.</p>
+    </section>
+
+    <div class="nav">
+      <a href="/" class="header-back">
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+        </svg>
+        Back
+      </a>
+    </div>
+  </div>
+</body>
+</html>

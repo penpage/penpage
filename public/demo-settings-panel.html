@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Settings Panel - Layout Options</title>
+<style>
+  :root {
+    --bg: #1a1a2e;
+    --bg-panel: #16213e;
+    --bg-input: #0f3460;
+    --bg-hover: #1a3a6a;
+    --border: #2a4a7a;
+    --border-light: #1e3a5f;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0b0;
+    --text-muted: #707080;
+    --accent: #4a9eff;
+    --shadow: rgba(0,0,0,0.3);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #0a0a1a;
+    color: var(--text-primary);
+    padding: 24px;
+  }
+
+  h1 { font-size: 20px; color: var(--accent); margin-bottom: 8px; }
+  h2 { font-size: 16px; color: var(--text-secondary); margin: 32px 0 12px; }
+  .desc { font-size: 13px; color: var(--text-muted); margin-bottom: 16px; }
+
+  .demo-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+
+  .panel {
+    width: 320px;
+    background: var(--bg-panel);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px var(--shadow);
+    flex-shrink: 0;
+  }
+
+  .panel-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-light);
+    gap: 8px;
+  }
+
+  .back-btn {
+    width: 36px; height: 36px;
+    border: none; background: transparent;
+    border-radius: 8px; cursor: pointer;
+    color: var(--text-primary);
+    font-size: 18px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .back-btn:hover { background: var(--bg-hover); }
+
+  .section-label {
+    font-size: 11px; font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    padding: 10px 16px 4px;
+  }
+
+  .setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: var(--text-primary);
+  }
+
+  .setting-row label { cursor: pointer; }
+
+  .toggle {
+    width: 40px; height: 22px;
+    background: var(--border); border-radius: 11px;
+    position: relative; cursor: pointer;
+    transition: background 0.2s;
+  }
+  .toggle.on { background: var(--accent); }
+  .toggle::after {
+    content: '';
+    width: 18px; height: 18px;
+    background: white; border-radius: 50%;
+    position: absolute; top: 2px; left: 2px;
+    transition: left 0.2s;
+  }
+  .toggle.on::after { left: 20px; }
+
+  select.theme-select {
+    background: var(--bg-input); color: var(--text-primary);
+    border: 1px solid var(--border); border-radius: 6px;
+    padding: 4px 8px; font-size: 13px; cursor: pointer;
+  }
+
+  .slider-row {
+    padding: 4px 16px 8px;
+  }
+  .slider-label {
+    display: flex; justify-content: space-between;
+    font-size: 13px; color: var(--text-secondary);
+    margin-bottom: 4px;
+  }
+  .slider-label .val { color: var(--text-primary); font-weight: 500; }
+  input[type="range"] {
+    width: 100%; height: 4px;
+    accent-color: var(--accent); cursor: pointer;
+  }
+
+  .btn-row {
+    display: flex; gap: 8px;
+    padding: 6px 16px;
+  }
+  .btn {
+    flex: 1; padding: 7px 10px;
+    background: var(--bg-input); border: 1px solid var(--border);
+    border-radius: 6px; font-size: 13px;
+    color: var(--text-primary); cursor: pointer;
+    text-align: center; transition: background 0.15s;
+    white-space: nowrap;
+  }
+  .btn:hover { background: var(--bg-hover); }
+
+  .footer-links {
+    display: flex; flex-wrap: wrap;
+    gap: 4px 12px; padding: 8px 16px;
+    border-top: 1px solid var(--border-light);
+    margin-top: 4px;
+  }
+  .footer-links a, .footer-links span {
+    font-size: 11px; color: var(--accent); text-decoration: none;
+  }
+
+  .divider { border-top: 1px solid var(--border-light); margin: 4px 0; }
+
+  /* Compact slider inline */
+  .inline-slider {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 16px;
+  }
+  .inline-slider label { font-size: 13px; color: var(--text-secondary); width: 70px; flex-shrink: 0; }
+  .inline-slider input[type="range"] { flex: 1; }
+  .inline-slider .val { font-size: 13px; color: var(--text-primary); width: 36px; text-align: right; flex-shrink: 0; }
+
+  .reset-link {
+    font-size: 11px; color: var(--text-muted); cursor: pointer;
+    text-align: right; padding: 0 16px 6px;
+    text-decoration: underline;
+  }
+
+  /* Grid buttons */
+  .btn-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 6px;
+    padding: 6px 16px;
+  }
+  .btn-grid .btn { font-size: 12px; padding: 8px 4px; }
+
+  .tag { font-size: 11px; background: var(--accent); color: #fff; padding: 2px 6px; border-radius: 4px; margin-left: 8px; }
+</style>
+</head>
+<body>
+
+<h1>Settings Panel - Layout Comparison</h1>
+<p class="desc">所有方案都使用 SearchPage 風格的 ← 返回按鈕（左上方），移除 Settings 標題。</p>
+
+<!-- ====== OPTION A ====== -->
+<h2>Option A: 最小改動（Baseline）</h2>
+<p class="desc">僅改 X → ← 返回按鈕，移除標題。保留所有 section labels 和現有分組。</p>
+<div class="demo-row">
+  <div class="panel">
+    <div class="panel-header">
+      <button class="back-btn">←</button>
+    </div>
+
+    <div class="section-label">PREFERENCES</div>
+    <div class="setting-row">
+      <label>Show Trash</label>
+      <div class="toggle"></div>
+    </div>
+    <div class="setting-row">
+      <label>Theme</label>
+      <select class="theme-select"><option>System</option></select>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">FONT SIZE (Desktop)</div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Interface</span><span class="val">18px</span></div>
+      <input type="range" min="12" max="36" value="18">
+    </div>
+    <div class="slider-row">
+      <div class="slider-label"><span>Content</span><span class="val">18px</span></div>
+      <input type="range" min="12" max="36" value="18">
+    </div>
+    <div class="btn-row"><div class="btn">Reset to Default</div></div>
+
+    <div class="divider"></div>
+    <div class="section-label">DATA</div>
+    <div class="btn-row">
+      <div class="btn">💾 Save</div>
+      <div class="btn">📂 Load</div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">PENPAGE</div>
+    <div class="btn-row">
+      <div class="btn">📲 Install</div>
+      <div class="btn">❤️ Feedback</div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-label">MAINTENANCE</div>
+    <div class="btn-row">
+      <div class="btn">🧹 Cleanup</div>
+      <div class="btn">🔄 Reset</div>
+    </div>
+
+    <div class="footer-links">
+      <span>v2025.01</span>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+</div>
+
+<!-- ====== OPTION B ====== -->
+<h2>Option B: 扁平列表 - 移除 Section Labels <span class="tag">推薦</span></h2>
+<p class="desc">移除所有 section labels（PREFERENCES、DATA 等），用 dividers 分組。Font slider 改為 inline 一行式，更緊湊。所有 action 按鈕合併成 2×3 grid。</p>
+<div class="demo-row">
+  <div class="panel">
+    <div class="panel-header">
+      <button class="back-btn">←</button>
+    </div>
+
+    <!-- Preferences: inline -->
+    <div class="setting-row">
+      <label>Show Trash</label>
+      <div class="toggle"></div>
+    </div>
+    <div class="setting-row">
+      <label>Theme</label>
+      <select class="theme-select"><option>System</option></select>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Font: inline sliders -->
+    <div class="inline-slider">
+      <label>Interface</label>
+      <input type="range" min="12" max="36" value="18">
+      <span class="val">18px</span>
+    </div>
+    <div class="inline-slider">
+      <label>Content</label>
+      <input type="range" min="12" max="36" value="18">
+      <span class="val">18px</span>
+    </div>
+    <div class="reset-link">Reset</div>
+
+    <div class="divider"></div>
+
+    <!-- Actions: 2x3 grid -->
+    <div class="btn-grid">
+      <div class="btn">💾 Save</div>
+      <div class="btn">📂 Load</div>
+      <div class="btn">🧹 Cleanup</div>
+      <div class="btn">📲 Install</div>
+      <div class="btn">❤️ Feedback</div>
+      <div class="btn">🔄 Reset</div>
+    </div>
+
+    <div class="footer-links">
+      <span>v2025.01</span>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+</div>
+
+<!-- ====== OPTION C ====== -->
+<h2>Option C: 極致精簡 - Action 改為 Icon Row</h2>
+<p class="desc">Action 按鈕縮成一排純 icon 按鈕（hover 顯示 tooltip）。最小佔用空間。</p>
+<div class="demo-row">
+  <div class="panel" style="width: 300px;">
+    <div class="panel-header">
+      <button class="back-btn">←</button>
+    </div>
+
+    <div class="setting-row">
+      <label>Show Trash</label>
+      <div class="toggle"></div>
+    </div>
+    <div class="setting-row">
+      <label>Theme</label>
+      <select class="theme-select"><option>System</option></select>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="inline-slider">
+      <label>UI Font</label>
+      <input type="range" min="12" max="36" value="18">
+      <span class="val">18</span>
+    </div>
+    <div class="inline-slider">
+      <label>Content</label>
+      <input type="range" min="12" max="36" value="18">
+      <span class="val">18</span>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Icon-only action row -->
+    <div style="display:flex; justify-content:center; gap:6px; padding:10px 16px;">
+      <button class="back-btn" title="Save" style="font-size:16px;">💾</button>
+      <button class="back-btn" title="Load" style="font-size:16px;">📂</button>
+      <button class="back-btn" title="Cleanup" style="font-size:16px;">🧹</button>
+      <button class="back-btn" title="Install" style="font-size:16px;">📲</button>
+      <button class="back-btn" title="Feedback" style="font-size:16px;">❤️</button>
+      <button class="back-btn" title="Reset" style="font-size:16px;">🔄</button>
+    </div>
+
+    <div class="footer-links">
+      <span>v2025.01</span>
+      <a href="#">Terms</a>
+      <a href="#">Privacy</a>
+    </div>
+  </div>
+</div>
+
+<!-- ====== OPTION D ====== -->
+<h2>Option D: Slide-over Panel（與 SearchPage 一致）</h2>
+<p class="desc">將 Settings 從 dropdown 改成 slide-over panel（跟 SearchPage 同樣的模式）。← 返回按鈕在左上方，右側有小標題。Mobile Portrait 從底部滑入。適合未來擴充更多設定。</p>
+<div class="demo-row">
+  <div class="panel" style="width: 360px; min-height: 480px; display:flex; flex-direction:column;">
+    <div class="panel-header" style="background: var(--bg-panel);">
+      <button class="back-btn">←</button>
+      <span style="font-size:14px; color:var(--text-muted);">Settings</span>
+    </div>
+
+    <div style="flex:1; overflow:auto; padding-bottom: 8px;">
+      <div class="setting-row">
+        <label>Show Trash</label>
+        <div class="toggle"></div>
+      </div>
+      <div class="setting-row">
+        <label>Theme</label>
+        <select class="theme-select"><option>System</option></select>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="inline-slider">
+        <label>Interface</label>
+        <input type="range" min="12" max="36" value="18">
+        <span class="val">18px</span>
+      </div>
+      <div class="inline-slider">
+        <label>Content</label>
+        <input type="range" min="12" max="36" value="18">
+        <span class="val">18px</span>
+      </div>
+      <div class="reset-link">Reset to Default</div>
+
+      <div class="divider"></div>
+
+      <div class="btn-row">
+        <div class="btn">💾 Save All</div>
+        <div class="btn">📂 Load All</div>
+      </div>
+      <div class="btn-row">
+        <div class="btn">📲 Install App</div>
+        <div class="btn">❤️ Feedback</div>
+      </div>
+      <div class="btn-row">
+        <div class="btn">🧹 Cleanup</div>
+        <div class="btn">🔄 Reset App</div>
+      </div>
+    </div>
+
+    <div class="footer-links" style="border-top:1px solid var(--border-light); padding:10px 16px;">
+      <span>v2025.01</span>
+      <a href="#">Terms of Service</a>
+      <a href="#">Privacy Policy</a>
+    </div>
+  </div>
+</div>
+
+<!-- Summary Table -->
+<h2 style="margin-top: 48px;">比較總結</h2>
+<table style="border-collapse:collapse; font-size:13px; color:var(--text-secondary); width:100%; max-width:750px;">
+<tr style="border-bottom:1px solid var(--border);">
+  <th style="text-align:left; padding:8px;">方案</th>
+  <th style="text-align:left; padding:8px;">改動幅度</th>
+  <th style="text-align:left; padding:8px;">優點</th>
+  <th style="text-align:left; padding:8px;">缺點</th>
+</tr>
+<tr style="border-bottom:1px solid var(--border-light);">
+  <td style="padding:8px;">A: Baseline</td>
+  <td style="padding:8px;">最小</td>
+  <td style="padding:8px;">安全，只改按鈕</td>
+  <td style="padding:8px;">仍然冗長</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border-light);">
+  <td style="padding:8px; color:var(--accent);">B: 扁平列表 ★</td>
+  <td style="padding:8px;">中等</td>
+  <td style="padding:8px;">精簡、乾淨、noise 少</td>
+  <td style="padding:8px;">Action 分組不明顯</td>
+</tr>
+<tr style="border-bottom:1px solid var(--border-light);">
+  <td style="padding:8px;">C: 極致精簡</td>
+  <td style="padding:8px;">高</td>
+  <td style="padding:8px;">佔用最小空間</td>
+  <td style="padding:8px;">純 icon 可能不直覺</td>
+</tr>
+<tr>
+  <td style="padding:8px;">D: Slide-over</td>
+  <td style="padding:8px;">高</td>
+  <td style="padding:8px;">跟 Search 一致、可擴充</td>
+  <td style="padding:8px;">改動大、偏重</td>
+</tr>
+</table>
+
+</body>
+</html>

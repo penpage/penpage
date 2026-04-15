@@ -1,0 +1,86 @@
+# ==========================================
+# Open PenPage 開發環境 Docker Compose
+# ==========================================
+# 用途：本機開發測試（HTTPS + HMR）
+# 端口：80 (HTTP → 301), 443 (HTTPS)
+# SSL：自簽證書（需自行產生 ssl/cert.pem, ssl/key.pem）
+# ==========================================
+
+services:
+  # Vite 開發服務器
+  penpage-dev:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    image: open-ppage:dev
+    container_name: open-ppage-dev-server
+    restart: unless-stopped
+
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+      - WATCHPACK_POLLING=true
+
+    volumes:
+      # Mount source code for hot reload
+      - ./src:/app/src:ro
+      - ./public:/app/public:ro
+      - ./index.html:/app/index.html:ro
+      - ./vite.config.ts:/app/vite.config.ts:ro
+      - ./tsconfig.json:/app/tsconfig.json:ro
+      - ./tsconfig.node.json:/app/tsconfig.node.json:ro
+      # Prevent overwriting node_modules
+      - /app/node_modules
+
+    networks:
+      - ppage-dev-network
+
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:8080"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+    deploy:
+      resources:
+        limits:
+          cpus: '2'
+          memory: 2G
+        reservations:
+          cpus: '1'
+          memory: 512M
+
+  # Nginx 反向代理（HTTPS termination）
+  nginx:
+    image: nginx:alpine
+    container_name: open-ppage-dev-nginx
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      # SSL 證書（自簽）
+      - ./ssl/cert.pem:/etc/nginx/ssl/cert.pem:ro
+      - ./ssl/key.pem:/etc/nginx/ssl/key.pem:ro
+      - ./nginx.dev.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./logs/nginx-dev:/var/log/nginx
+
+    networks:
+      - ppage-dev-network
+
+    depends_on:
+      - penpage-dev
+
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "--no-check-certificate", "https://localhost/manifest.json"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+networks:
+  ppage-dev-network:
+    driver: bridge

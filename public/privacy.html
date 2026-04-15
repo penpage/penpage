@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - PenPage</title>
+  <link rel="canonical" href="https://penpage.com/privacy.html" />
+  <meta name="description"
+    content="PenPage Privacy Policy - Learn how we protect your privacy with local-first data storage and optional cloud sync.">
+  <link rel="icon" type="image/png" href="/ppage2.png">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* 綠色黑板主題 - 基於 themes.ts blackboard */
+    body {
+      min-height: 100vh;
+      background: #1a332a;
+      padding: 2rem 1rem;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: #2d4a3e;
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      line-height: 1.7;
+      color: #f5f0dc;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .brand span {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #f5d76e;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #f5f0dc;
+      margin-bottom: 0.5rem;
+      border-bottom: 3px solid #f5d76e;
+      padding-bottom: 1rem;
+    }
+
+    .last-updated {
+      color: #8a8578;
+      font-size: 0.9rem;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #f5f0dc;
+      margin-top: 2.5rem;
+      margin-bottom: 1rem;
+      border-left: 4px solid #f5d76e;
+      padding-left: 1rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #c4bfb0;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+    }
+
+    p {
+      color: #c4bfb0;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    ul {
+      margin: 1rem 0;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      color: #c4bfb0;
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    li strong {
+      color: #f5f0dc;
+      font-weight: 600;
+    }
+
+    a {
+      color: #f5d76e;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: all 0.2s ease;
+    }
+
+    a:hover {
+      color: #f5f0dc;
+      border-bottom-color: #f5d76e;
+    }
+
+    /* Summary Box */
+    .summary {
+      background: linear-gradient(135deg, #c9b44c 0%, #764ba2 100%);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-top: 3rem;
+      color: white;
+    }
+
+    .summary h2 {
+      color: white;
+      border-left: 4px solid white;
+      margin-top: 0;
+    }
+
+    .summary-box p {
+      color: rgba(255, 255, 255, 0.9) !important;
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-box p strong {
+      color: white;
+      font-weight: 600;
+      background: linear-gradient(120deg, rgba(8, 3, 99, 0.35) 0%, rgba(79, 70, 229, 0.35) 100%);
+      background-repeat: no-repeat;
+      background-size: 100% 40%;
+      background-position: 0 85%;
+      padding: 0 0.2rem;
+    }
+
+    /* Navigation */
+    .nav {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 2px solid #4a5d54;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+
+    /* Header with back button */
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .header-back {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      padding: 0 12px;
+      height: 32px;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      background: #d5d0bc;
+      color: #3d5a4c;
+      border: 1px solid #4a5d54;
+      transition: all 0.15s ease;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .header-back:hover {
+      background: #f5f0dc;
+      color: #3d5a4c;
+      border-color: #3d5a4c;
+      box-shadow: 0 2px 8px rgba(245, 240, 220, 0.6);
+    }
+
+    .header-back svg {
+      flex-shrink: 0;
+      stroke-width: 2.5;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 2rem 1.5rem;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .nav {
+        justify-content: flex-start;
+      }
+
+      .nav .header-back {
+        width: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <a href="/" class="header-back">
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+        </svg>
+        Back
+      </a>
+      <div class="brand">
+        <img src="/ppage2.png" alt="PenPage">
+        <span>PenPage</span>
+      </div>
+    </div>
+    <h1>PenPage Privacy Policy</h1>
+    <p class="last-updated">Last Updated: January 2025</p>
+
+    <section>
+      <h2>Our Commitment to Your Privacy</h2>
+      <p>
+        At PenPage, privacy isn't just a feature—it's our foundation. We believe your thoughts,
+        notes, and ideas belong to you and you alone. This Privacy Policy explains how we handle
+        your data with the utmost respect for your privacy.
+      </p>
+    </section>
+
+    <section>
+      <h2>1. Data Storage: Local-First by Design</h2>
+      <h3>What we store locally:</h3>
+      <ul>
+        <li><strong>Your notes and content</strong>: Stored directly in your browser using IndexedDB</li>
+        <li><strong>Your preferences</strong>: Editor settings, theme choices, and UI preferences</li>
+        <li><strong>Your folders and organization</strong>: How you structure your notes</li>
+      </ul>
+      <h3>What this means:</h3>
+      <ul>
+        <li>Your data lives on YOUR device first</li>
+        <li>We cannot read your notes (they never reach our servers by default)</li>
+        <li>You can use PenPage completely offline</li>
+        <li>You can clear all data by clearing browser storage</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>2. Optional Google Drive Sync</h2>
+      <p>If you choose to enable Google Drive sync, here's what happens:</p>
+      <ul>
+        <li><strong>Your explicit consent required</strong>: Sync is 100% optional and disabled by default</li>
+        <li><strong>Direct sync</strong>: Your notes sync directly from your browser to YOUR Google Drive</li>
+        <li><strong>No intermediary storage</strong>: We do not store your notes on our servers during sync</li>
+        <li><strong>Google's privacy policy applies</strong>: Data stored in your Google Drive is governed by Google's
+          privacy policy</li>
+        <li><strong>Revocable access</strong>: You can revoke PenPage's access to Google Drive at any time via your
+          Google Account settings</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>3. Data We Do NOT Collect</h2>
+      <p>We want to be crystal clear about what we DON'T do:</p>
+      <ul>
+        <li>We do NOT read your note contents</li>
+        <li>We do NOT track your writing habits or patterns</li>
+        <li>We do NOT sell your data to third parties</li>
+        <li>We do NOT use your content for AI training</li>
+        <li>We do NOT store your notes on our servers (unless you use cloud sync)</li>
+        <li>We do NOT require account creation or email addresses</li>
+        <li>We do NOT use invasive analytics or tracking cookies</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>4. Anonymous Usage Analytics (Optional)</h2>
+      <p>To improve PenPage, we may collect minimal, anonymous usage data:</p>
+      <ul>
+        <li><strong>What we might collect</strong>: Page views, feature usage (e.g., "user clicked export"), error
+          reports</li>
+        <li><strong>What we NEVER collect</strong>: Your note content, personal identifiers, or anything that can
+          identify you</li>
+        <li><strong>How to opt-out</strong>: You can disable analytics in Settings or use browser privacy tools</li>
+        <li><strong>Tools we use</strong>: Privacy-friendly analytics (e.g., Plausible, Fathom) that don't use cookies
+          or track individuals</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>5. Cookies and Local Storage</h2>
+      <ul>
+        <li><strong>Essential storage only</strong>: We use browser local storage (IndexedDB, localStorage) to save your
+          notes and preferences</li>
+        <li><strong>No tracking cookies</strong>: We do not use cookies for tracking or advertising</li>
+        <li><strong>Third-party cookies</strong>: If you enable Google Drive sync, Google may set cookies according to
+          their privacy policy</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6. Data Security</h2>
+      <p>Because your data is stored locally first, you have direct control over its security:</p>
+      <ul>
+        <li><strong>Browser security</strong>: Your notes are protected by your browser's built-in security features
+        </li>
+        <li><strong>HTTPS encryption</strong>: All connections to penpage.com use HTTPS encryption</li>
+        <li><strong>No server-side vulnerabilities</strong>: Since we don't store your notes on servers, they can't be
+          leaked in a data breach</li>
+        <li><strong>Export encryption</strong>: When exporting, you control where files are saved and how they're
+          secured</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>7. Data Retention and Deletion</h2>
+      <ul>
+        <li><strong>You control retention</strong>: Your notes stay in your browser until you delete them</li>
+        <li><strong>How to delete all data</strong>: Clear browser data, or use PenPage's "Delete All" feature</li>
+        <li><strong>Cloud sync deletion</strong>: If you used Google Drive sync, delete files from Google Drive directly
+        </li>
+        <li><strong>No server-side data to delete</strong>: Since we don't store your notes, there's nothing to request
+          deletion of</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>8. Third-Party Services</h2>
+      <p>PenPage integrates with these third-party services:</p>
+      <ul>
+        <li><strong>Google Drive (optional)</strong>: For cloud sync. See <a href="https://policies.google.com/privacy"
+            target="_blank" rel="noopener noreferrer">Google Privacy Policy</a></li>
+        <li><strong>Google Fonts (optional)</strong>: For typography. Fonts may be loaded from Google's CDN</li>
+      </ul>
+      <p>
+        We carefully select third-party services and only use those that respect user privacy.
+        For a complete list of open-source libraries we use and their licenses, see our
+        <a href="/licenses.html">Third-Party Licenses</a> page.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Children's Privacy</h2>
+      <p>
+        PenPage does not knowingly collect personal information from children under 13. Because we
+        don't collect personal data by default, children can use PenPage safely. If you're a parent
+        and have concerns, please contact us.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. International Users</h2>
+      <p>
+        PenPage is available worldwide. Because your data is stored locally in your browser,
+        it doesn't cross borders unless you choose cloud sync. If you use Google Drive sync,
+        your data may be stored in Google's data centers worldwide.
+      </p>
+    </section>
+
+    <section>
+      <h2>11. Your Rights</h2>
+      <p>You have complete control over your data:</p>
+      <ul>
+        <li><strong>Access</strong>: View all your notes directly in the app</li>
+        <li><strong>Export</strong>: Download your notes as Markdown or plain text anytime</li>
+        <li><strong>Delete</strong>: Remove individual notes or wipe all data</li>
+        <li><strong>Portability</strong>: Export in open formats (Markdown, .txt) to use anywhere</li>
+        <li><strong>Opt-out</strong>: Disable optional features like analytics or cloud sync</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>12. Changes to This Privacy Policy</h2>
+      <p>We may update this Privacy Policy occasionally. When we do:</p>
+      <ul>
+        <li>We'll update the "Last Updated" date at the top</li>
+        <li>We'll notify users of significant changes via in-app notification</li>
+        <li>Continued use after changes means you accept the updated policy</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>13. Contact Us</h2>
+      <p>Questions about privacy? We're here to help:</p>
+      <ul>
+        <li><strong>Email</strong>: support@penpage.com</li>
+        <li><strong>GitHub</strong>: <a href="https://github.com/nicepage/ppage/issues" target="_blank"
+            rel="noopener noreferrer">Open an issue</a></li>
+      </ul>
+    </section>
+
+    <section class="summary">
+      <h2>Privacy Policy Summary</h2>
+      <div class="summary-box">
+        <p><strong>Local-First:</strong> Your notes live in your browser by default</p>
+        <p><strong>No Tracking:</strong> We don't read, analyze, or sell your data</p>
+        <p><strong>Optional Sync:</strong> Cloud sync is your choice, not ours</p>
+        <p><strong>Always Exportable:</strong> Your data in open formats, anytime</p>
+        <p><strong>You're in Control:</strong> Full ownership and control of your notes</p>
+      </div>
+    </section>
+
+    <div class="nav">
+      <a href="/" class="header-back">
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="currentColor">
+          <path fill-rule="evenodd" d="M12.5 15a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 1 0v13a.5.5 0 0 1-.5.5M10 8a.5.5 0 0 1-.5.5H3.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L3.707 7.5H9.5a.5.5 0 0 1 .5.5"/>
+        </svg>
+        Back
+      </a>
+    </div>
+  </div>
+</body>
+
+</html>

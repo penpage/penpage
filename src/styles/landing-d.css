@@ -1,0 +1,362 @@
+/**
+ * Landing Page D 樣式
+ * Apple 風格 + 黑板主題
+ */
+
+/* ===== 變數定義 ===== */
+:root {
+  --bb-green: #2d4a3e;
+  --bb-green-light: #3a5d4d;
+  --bb-chalk: #f5f0dc;
+  --bb-chalk-dim: #c4bfb0;
+  --bb-wood: #8B4513;
+  --bb-wood-light: #A0522D;
+  --bb-wood-dark: #5D3A1A;
+  --bb-yellow: #FFF8DC;
+  --bb-yellow-accent: #FFE259;
+  --bb-orange: #FF8C00;
+}
+
+/* ===== 主容器 ===== */
+.landing-d {
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', 'Helvetica Neue', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+  background: linear-gradient(180deg, #2d4a3e 0%, #1a332a 100%);
+  color: var(--bb-chalk);
+  line-height: 1.5;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 木框 ===== */
+.landing-d .wooden-frame {
+  height: 20px;
+  background: linear-gradient(90deg,
+    #5D3A1A 0%,
+    #8B4513 20%,
+    #A0522D 50%,
+    #8B4513 80%,
+    #5D3A1A 100%
+  );
+  box-shadow:
+    inset 0 2px 4px rgba(255,255,255,0.2),
+    inset 0 -2px 4px rgba(0,0,0,0.3),
+    0 4px 8px rgba(0,0,0,0.4);
+}
+
+.landing-d .wooden-frame-top {
+  border-bottom: 3px solid #4a2f0f;
+}
+
+.landing-d .wooden-frame-bottom {
+  border-top: 3px solid #4a2f0f;
+}
+
+/* ===== Hero Section ===== */
+.landing-d .hero {
+  text-align: center;
+  padding: 80px 24px 60px;
+  background:
+    radial-gradient(ellipse at 30% 20%, rgba(58, 93, 77, 0.3) 0%, transparent 50%),
+    radial-gradient(ellipse at 70% 80%, rgba(58, 93, 77, 0.2) 0%, transparent 50%),
+    linear-gradient(180deg, #2d4a3e 0%, #234536 50%, #1a332a 100%);
+}
+
+.landing-d .logo-text {
+  font-size: 4.5rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #FFE259 0%, #FFAB40 35%, #FF8C00 70%, #E67E22 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(2px 3px 4px rgba(255, 140, 0, 0.6));
+  margin-bottom: 1rem;
+}
+
+.landing-d .hero .tagline {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--bb-chalk);
+  margin-bottom: 12px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  letter-spacing: -0.01em;
+}
+
+.landing-d .hero .subtitle {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--bb-chalk-dim);
+  margin-bottom: 36px;
+}
+
+/* ===== CTA 按鈕 ===== */
+.landing-d .cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-d .btn-primary {
+  padding: 16px 36px;
+  font-size: 19px;
+  font-weight: 600;
+  font-family: inherit;
+  background: linear-gradient(135deg, #FFE259 0%, #FF8C00 100%);
+  color: #2d1810;
+  border: none;
+  border-radius: 980px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(255, 140, 0, 0.4);
+}
+
+.landing-d .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 140, 0, 0.5);
+}
+
+.landing-d .btn-secondary {
+  padding: 16px 32px;
+  font-size: 19px;
+  font-weight: 500;
+  font-family: inherit;
+  background: transparent;
+  color: var(--bb-chalk);
+  border: 1.5px solid var(--bb-chalk-dim);
+  border-radius: 980px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.landing-d .btn-secondary:hover {
+  background: rgba(245, 240, 220, 0.1);
+  border-color: var(--bb-chalk);
+}
+
+/* ===== Promise Section ===== */
+.landing-d .promise-section {
+  padding: 80px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.landing-d .section-label {
+  text-align: center;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #a8a8a8;
+  margin-bottom: 48px;
+}
+
+.landing-d .cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ===== Apple 風格卡片 ===== */
+.landing-d .card {
+  padding: 40px 36px;
+  border-radius: 18px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+.landing-d .card:nth-child(1) {
+  background: linear-gradient(180deg, #E3F2FD 0%, #BBDEFB 100%);
+  color: #1565C0;
+}
+
+.landing-d .card:nth-child(2) {
+  background: linear-gradient(180deg, #E8F5E9 0%, #C8E6C9 100%);
+  color: #2E7D32;
+}
+
+.landing-d .card:nth-child(3) {
+  background: linear-gradient(180deg, #F3E5F5 0%, #E1BEE7 100%);
+  color: #7B1FA2;
+}
+
+.landing-d .card:nth-child(4) {
+  background: linear-gradient(180deg, #FFF8DC 0%, #FFE4B5 100%);
+  color: #5D3A1A;
+}
+
+.landing-d .card:hover {
+  transform: scale(1.02);
+}
+
+.landing-d .card:nth-child(1):hover {
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.16),
+    12px 12px 35px rgba(100, 181, 246, 0.5);
+}
+
+.landing-d .card:nth-child(2):hover {
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.16),
+    12px 12px 35px rgba(129, 199, 132, 0.5);
+}
+
+.landing-d .card:nth-child(3):hover {
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.16),
+    12px 12px 35px rgba(186, 104, 200, 0.5);
+}
+
+.landing-d .card:nth-child(4):hover {
+  box-shadow:
+    0 8px 24px rgba(0,0,0,0.16),
+    12px 12px 35px rgba(255, 213, 79, 0.5);
+}
+
+.landing-d .card-label {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+  opacity: 0.85;
+  margin-bottom: 6px;
+}
+
+.landing-d .card h3 {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.landing-d .card-description {
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.landing-d .card-description .we-do {
+  margin-bottom: 16px;
+  font-weight: 400;
+}
+
+.landing-d .card-description .we-dont {
+  padding-top: 16px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  opacity: 0.7;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+/* ===== Footer CTA ===== */
+.landing-d .footer-cta {
+  text-align: center;
+  padding: 80px 24px;
+  background: linear-gradient(180deg, #1a332a 0%, #234536 100%);
+}
+
+.landing-d .footer-cta h2 {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--bb-chalk);
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  letter-spacing: -0.02em;
+}
+
+.landing-d .footer-subtitle {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--bb-chalk-dim);
+  margin-bottom: 36px;
+}
+
+/* ===== Footer ===== */
+.landing-d .footer {
+  background: var(--bb-wood-dark);
+  padding: 2rem;
+  text-align: center;
+}
+
+.landing-d .footer-tagline {
+  font-size: 17px;
+  font-weight: 400;
+  color: var(--bb-chalk);
+  margin-bottom: 1rem;
+}
+
+.landing-d .footer-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.landing-d .footer-links a {
+  font-size: 16px;
+  color: var(--bb-chalk-dim);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.landing-d .footer-links a:hover {
+  color: var(--bb-yellow-accent);
+}
+
+.landing-d .footer-links span {
+  color: var(--bb-chalk-dim);
+}
+
+/* ===== RWD ===== */
+@media (max-width: 768px) {
+  .landing-d .cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .landing-d .logo-text {
+    font-size: 3rem;
+  }
+
+  .landing-d .hero .tagline {
+    font-size: 1.6rem;
+  }
+
+  .landing-d .hero .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .landing-d .section-label {
+    font-size: 20px;
+  }
+
+  .landing-d .footer-cta h2 {
+    font-size: 28px;
+  }
+
+  .landing-d .footer-subtitle {
+    font-size: 18px;
+  }
+
+  .landing-d .card {
+    padding: 32px 28px;
+  }
+
+  .landing-d .card h3 {
+    font-size: 24px;
+  }
+
+  .landing-d .card-description {
+    font-size: 18px;
+  }
+
+  .landing-d .card-description .we-dont {
+    font-size: 16px;
+  }
+
+  .landing-d .btn-primary,
+  .landing-d .btn-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}

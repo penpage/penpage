@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PenPage — AI meets Markdown</title>
+  <meta name="description" content="AI meets Markdown. You need PenPage. Real WYSIWYG Markdown editor — write beautifully, stay private, go anywhere. Edit CLAUDE.md, AI prompts, and notes with local-first storage. Free, no sign-up.">
+  <link rel="icon" type="image/png" href="/ppage2.png">
+  <link rel="privacy-policy" href="https://penpage.com/privacy.html">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #1a332a 0%, #2d4a3e 50%, #1a332a 100%);
+      min-height: 100vh;
+      color: #f5f0dc;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header / Brand */
+    header {
+      text-align: center;
+      padding: 3rem 0;
+      border-bottom: 2px solid #4a5d54;
+      margin-bottom: 3rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .brand img {
+      width: 80px;
+      height: 80px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .brand h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #f5f0dc;
+      letter-spacing: -1px;
+    }
+
+    .tagline {
+      font-size: 1.5rem;
+      color: #c4bfb0;
+      margin-bottom: 1rem;
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      color: #8a8578;
+    }
+
+    /* Main Content */
+    main {
+      padding: 2rem 0;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid #4a5d54;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      color: #f5f0dc;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #4a5d54;
+    }
+
+    section p {
+      color: #c4bfb0;
+      margin-bottom: 1rem;
+    }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    section li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: #c4bfb0;
+      border-bottom: 1px solid rgba(74, 93, 84, 0.5);
+    }
+
+    section li:last-child {
+      border-bottom: none;
+    }
+
+    section li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #7cb87c;
+      font-weight: bold;
+    }
+
+    /* Features Grid */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid #4a5d54;
+      border-radius: 8px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .feature-card .icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.1rem;
+      color: #f5f0dc;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9rem;
+      color: #8a8578;
+      margin: 0;
+    }
+
+    /* CTA Button */
+    .cta-section {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #4F46E5;
+      color: white;
+      padding: 1rem 2.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+
+    .cta-button:hover {
+      background: #6366F1;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 2px solid #4a5d54;
+      padding: 2rem 0;
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-brand img {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+    }
+
+    .footer-brand span {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #f5f0dc;
+    }
+
+    .footer-links {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      color: #c4bfb0;
+      text-decoration: underline;
+      margin: 0 1rem;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+      color: #f5f0dc;
+    }
+
+    .footer-copyright {
+      color: #8a8578;
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .brand h1 {
+        font-size: 2rem;
+      }
+
+      .tagline {
+        font-size: 1.2rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Header with Brand -->
+    <header>
+      <div class="brand">
+        <img src="/ppage2.png" alt="PenPage Logo">
+        <h1>PenPage</h1>
+      </div>
+      <p class="tagline">AI meets Markdown. You need PenPage.</p>
+      <p class="subtitle">Write beautifully. Stay private. Go anywhere.</p>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- What is PenPage -->
+      <section>
+        <h2>What is PenPage?</h2>
+        <p>
+          <strong>PenPage</strong> is a privacy-first note-taking web application designed for
+          users who value speed, simplicity, and data ownership. Whether you're capturing quick
+          thoughts, writing documentation, or organizing your ideas, PenPage provides a
+          distraction-free environment with powerful features.
+        </p>
+        <p>
+          PenPage stores your notes locally in your browser by default, ensuring your data
+          stays on your device. Export or backup anytime — your data is never locked in.
+        </p>
+      </section>
+
+      <!-- Key Features -->
+      <section>
+        <h2>Key Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="icon">⚡</div>
+            <h3>Lightning Fast</h3>
+            <p>Instant load, zero lag. Start writing immediately.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">✨</div>
+            <h3>Beautiful Editor</h3>
+            <p>WYSIWYG and Markdown modes with rich formatting.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">🔒</div>
+            <h3>Privacy First</h3>
+            <p>Local storage by default. Your data, your control.</p>
+          </div>
+          <div class="feature-card">
+            <div class="icon">📱</div>
+            <h3>PWA Ready</h3>
+            <p>Install as an app. Works fully offline.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-section">
+        <a href="/" class="cta-button">Start Using PenPage</a>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-brand">
+        <img src="/ppage2.png" alt="PenPage">
+        <span>PenPage</span>
+      </div>
+      <div class="footer-links">
+        <a href="https://penpage.com/privacy.html">Privacy Policy</a>
+        <a href="https://penpage.com/terms.html">Terms of Service</a>
+      </div>
+      <p class="footer-copyright">© 2025 PenPage. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>

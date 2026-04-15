@@ -1,0 +1,953 @@
+/* Help Page Styles - 跟隨 App 主題 */
+
+.help-page {
+  min-height: 100vh;
+  background: var(--bg-folder);
+  padding: 2rem 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.help-container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--bg-editor);
+  border-radius: 12px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+/* Google Translate Widget */
+.help-translate {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.goog-te-gadget {
+  font-family: inherit !important;
+}
+
+.goog-te-gadget-simple {
+  border: 1px solid var(--border) !important;
+  border-radius: 6px !important;
+  padding: 4px 8px !important;
+  background-color: var(--bg-input) !important;
+}
+
+.goog-te-gadget-simple:hover {
+  border-color: var(--accent) !important;
+}
+
+/* 頂部導覽列 */
+.help-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 品牌標識 */
+.help-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.help-brand-logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.help-brand-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: -0.5px;
+}
+
+/* Headings */
+.help-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 1rem;
+}
+
+.help-container .help-subtitle {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+}
+
+.help-container h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  border-left: 4px solid var(--accent);
+  padding-left: 1rem;
+}
+
+.help-container h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* 搜尋框 */
+.help-search {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.help-search-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+  box-sizing: border-box;
+}
+
+.help-search-input:focus {
+  border-color: var(--accent);
+}
+
+.help-search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.help-search-clear {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.25rem;
+  font-size: 0.9rem;
+}
+
+.help-search-clear:hover {
+  color: var(--text-primary);
+}
+
+/* 搜尋高亮 */
+.help-container mark {
+  background: rgba(234, 179, 8, 0.4);
+  color: inherit;
+  padding: 0 2px;
+  border-radius: 2px;
+}
+
+/* 無結果提示 */
+.help-no-results {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+
+.help-no-results-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.help-search-reset {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.help-search-reset:hover {
+  border-color: var(--accent);
+  background: var(--bg-folder);
+}
+
+/* TOC 快速導覽 */
+.help-toc {
+  background: var(--bg-input);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  border: 1px solid var(--border);
+}
+
+.help-toc h2 {
+  margin-top: 0;
+  font-size: 1.25rem;
+  border-left: none;
+  padding-left: 0;
+  margin-bottom: 1rem;
+}
+
+.help-toc ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.help-toc li {
+  margin: 0;
+}
+
+.help-toc a {
+  display: block;
+  padding: 0.5rem 0.75rem;
+  color: var(--accent);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+.help-toc a:hover {
+  background: var(--bg-editor);
+  color: var(--text-primary);
+}
+
+/* Sections */
+.help-section {
+  margin-bottom: 2rem;
+  scroll-margin-top: 2rem;
+}
+
+.help-section p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.help-section ul,
+.help-section ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.help-section li {
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+.help-section li strong {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* 功能卡片網格 */
+.help-feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.help-feature-card {
+  background: var(--bg-input);
+  border-radius: 10px;
+  padding: 1.25rem;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.help-feature-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.help-feature-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.help-feature-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 快捷鍵表格 */
+.help-shortcuts-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.help-shortcuts-table th,
+.help-shortcuts-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-shortcuts-table th {
+  background: var(--bg-input);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.help-shortcuts-table td {
+  color: var(--text-secondary);
+}
+
+.help-shortcuts-table kbd {
+  background: var(--bg-input);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-family: 'SF Mono', 'Consolas', monospace;
+  font-size: 0.85em;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+}
+
+/* CTA 區塊 - 保持漸層以突出 */
+.help-cta {
+  background: linear-gradient(135deg, var(--accent) 0%, #764ba2 100%);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  margin-top: 3rem;
+}
+
+.help-cta h2 {
+  color: white;
+  border-left: none;
+  padding-left: 0;
+  margin-top: 0;
+  text-align: center;
+}
+
+.help-cta p {
+  color: rgba(255, 255, 255, 0.9) !important;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.help-cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.help-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.help-cta-btn.primary,
+.help-cta-btn.secondary {
+  background: white;
+  color: #764ba2;
+}
+
+.help-cta-btn.primary:hover,
+.help-cta-btn.secondary:hover {
+  background: #f0f0ff;
+  transform: translateY(-2px);
+}
+
+/* Navigation Buttons */
+.help-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 2px solid var(--border);
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-back,
+.btn-related {
+  padding: 0 12px;
+  height: 32px;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.15s ease;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  white-space: nowrap;
+}
+
+.btn-back {
+  background: #d5d0bc;
+  color: #3d5a4c;
+  border-color: #4a5d54;
+}
+
+.btn-back:hover {
+  background: #f5f0dc;
+  border-color: #3d5a4c;
+  box-shadow: 0 2px 8px rgba(245, 240, 220, 0.6);
+}
+
+.btn-back svg {
+  flex-shrink: 0;
+  stroke-width: 2.5;
+}
+
+.btn-related {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-related:hover {
+  opacity: 0.9;
+  transform: translateX(2px);
+}
+
+/* Links */
+.help-container a {
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.help-container a:hover {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent);
+}
+
+/* 排除 btn-back 連結 */
+.help-container a.btn-back {
+  color: #3d5a4c;
+  border-bottom: none;
+}
+
+.help-container a.btn-back:hover {
+  color: #3d5a4c;
+  border-bottom: none;
+}
+
+/* Highlight important points - 使用半透明 accent 色 */
+.help-section p strong,
+.help-section li strong {
+  background: linear-gradient(120deg, rgba(79, 70, 229, 0.15) 0%, rgba(79, 70, 229, 0.15) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 40%;
+  background-position: 0 85%;
+  padding: 0 0.2rem;
+}
+
+/* Code-like elements for technical terms */
+.help-container code {
+  background: var(--bg-input);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--accent);
+  font-family: 'SF Mono', 'Consolas', monospace;
+  border: 1px solid var(--border);
+}
+
+/* Warning box */
+.help-warning {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: rgba(234, 179, 8, 0.15);
+  border: 1px solid rgba(234, 179, 8, 0.3);
+  border-radius: 8px;
+  color: var(--text-primary);
+}
+
+/* Mobile APP 段落 - 安裝優點說明 */
+.help-benefit-box {
+  background: var(--bg-input);
+  border-left: 4px solid var(--accent);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 0 8px 8px 0;
+}
+
+.help-benefit-box h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.help-benefit-box p {
+  margin: 0;
+  color: var(--text-secondary);
+}
+
+/* 匯入方法卡片（Open MD） */
+.help-method-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.help-method-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.help-method-desc {
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.help-method-card ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.help-method-card li {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+.help-method-note {
+  margin-top: 0.75rem;
+  margin-bottom: 0;
+  padding: 0.75rem;
+  background: rgba(234, 179, 8, 0.1);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* 平台特定安裝指引 */
+.help-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.help-platform-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+}
+
+.help-platform-card h4 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.75rem 0;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.help-platform-icon {
+  font-size: 1.25rem;
+}
+
+.help-platform-position {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  padding: 0.5rem;
+  background: var(--bg-editor);
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+.help-platform-card ol {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+
+.help-platform-card li {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-secondary);
+}
+
+/* === Why PenPage 章節 === */
+.help-why-section {
+  background: linear-gradient(135deg, rgba(79, 70, 229, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 16px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+}
+
+.help-why-section h2 {
+  margin-top: 0;
+  text-align: center;
+  border-left: none;
+  padding-left: 0;
+}
+
+.help-why-intro {
+  text-align: center;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* 價值主張卡片 */
+.help-value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.help-value-card {
+  background: var(--bg-editor);
+  border-radius: 12px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.help-value-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.help-value-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.help-value-card h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.help-value-card p {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 競品比較表 */
+.help-comparison-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+
+.help-comparison-table th,
+.help-comparison-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-comparison-table th {
+  background: var(--bg-input);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.help-comparison-table th:nth-child(2),
+.help-comparison-table td:nth-child(2) {
+  text-align: center;
+  background: rgba(79, 70, 229, 0.08);
+}
+
+.help-comparison-table th:nth-child(3),
+.help-comparison-table td:nth-child(3) {
+  text-align: center;
+}
+
+.help-comparison-table td {
+  color: var(--text-secondary);
+}
+
+.help-comparison-table td.help-check {
+  color: #22c55e;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* === FAQ 章節 === */
+.help-faq-section h2 {
+  margin-bottom: 1.5rem;
+}
+
+.help-faq-category {
+  margin-bottom: 2rem;
+}
+
+.help-faq-category h3 {
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.help-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.help-faq-item {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.help-faq-item:hover {
+  border-color: var(--accent);
+}
+
+.help-faq-item[open] {
+  border-color: var(--accent);
+}
+
+.help-faq-item summary {
+  padding: 1rem 1.25rem;
+  cursor: pointer;
+  font-weight: 500;
+  color: var(--text-primary);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.help-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.help-faq-item summary::before {
+  content: '+';
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--accent);
+  background: rgba(79, 70, 229, 0.1);
+  border-radius: 50%;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.help-faq-item[open] summary::before {
+  content: '−';
+  background: var(--accent);
+  color: white;
+}
+
+.help-faq-item p {
+  padding: 0 1.25rem 1rem 3rem;
+  margin: 0;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* === Troubleshooting 章節 === */
+.help-troubleshooting-section h2 {
+  margin-bottom: 0.5rem;
+}
+
+.help-troubleshooting-section > p {
+  margin-bottom: 1.5rem;
+}
+
+.help-troubleshooting-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.help-troubleshooting-card {
+  background: var(--bg-input);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.help-troubleshooting-card:hover {
+  border-color: var(--accent);
+}
+
+.help-troubleshooting-card h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 0.75rem 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.help-troubleshooting-card h4::before {
+  content: '🔧';
+  font-size: 1.1rem;
+}
+
+.help-troubleshooting-card ol {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.help-troubleshooting-card li {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
+
+.help-troubleshooting-card li:last-child {
+  margin-bottom: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .help-container {
+    padding: 2rem 1.5rem;
+  }
+
+  .help-container h1 {
+    font-size: 2rem;
+  }
+
+  .help-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .help-container h3 {
+    font-size: 1.1rem;
+  }
+
+  .help-toc ul {
+    grid-template-columns: 1fr;
+  }
+
+  .help-feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .help-platform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .help-navigation {
+    justify-content: flex-start;
+  }
+
+  .btn-back {
+    width: auto;
+  }
+
+  .btn-related {
+    width: 100%;
+    text-align: center;
+  }
+
+  .help-cta-buttons {
+    flex-direction: column;
+  }
+
+  .help-cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .help-shortcuts-table {
+    font-size: 0.85rem;
+  }
+
+  .help-shortcuts-table th,
+  .help-shortcuts-table td {
+    padding: 0.5rem;
+  }
+
+  /* Why PenPage 響應式 */
+  .help-why-section {
+    padding: 1.5rem;
+  }
+
+  .help-value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .help-comparison-table {
+    font-size: 0.85rem;
+  }
+
+  .help-comparison-table th,
+  .help-comparison-table td {
+    padding: 0.5rem 0.75rem;
+  }
+
+  /* FAQ 響應式 */
+  .help-faq-item summary {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .help-faq-item p {
+    padding: 0 1rem 0.875rem 2.5rem;
+    font-size: 0.9rem;
+  }
+
+  /* Troubleshooting 響應式 */
+  .help-troubleshooting-grid {
+    grid-template-columns: 1fr;
+  }
+}
