@@ -66,9 +66,11 @@ interface FolderTreeProps {
 // Expose createFolder 和 Edit Mode 方法給外部調用
 export interface FolderTreeRef {
   createFolder: () => void
-  enterEditMode: () => void
+  createSubfolder: (parentId: string | null) => void
+  enterEditMode: (preSelectId?: string) => void
   exitEditMode: () => void
   isInEditMode: () => boolean
+  showFolderInfo: (folderId: string) => void
 }
 
 // Helper to identify trash folders（使用 rootFolders 的 isTrashFolderId）
@@ -268,9 +270,21 @@ const FolderTree = forwardRef<FolderTreeRef, FolderTreeProps>(({ onSelectFolder,
   // Expose createFolder 和 Edit Mode 給外部調用（透過 ref）
   useImperativeHandle(ref, () => ({
     createFolder: () => handleCreateFolder(null),
-    enterEditMode: () => editMode.enterEditMode('folder'),
+    createSubfolder: (parentId: string | null) => handleCreateFolder(parentId),
+    enterEditMode: (preSelectId?: string) => {
+      editMode.enterEditMode('folder')
+      if (preSelectId) editMode.toggleSelect(preSelectId)
+    },
     exitEditMode: () => editMode.exitEditMode(),
-    isInEditMode: () => editMode.isEditMode
+    isInEditMode: () => editMode.isEditMode,
+    showFolderInfo: (folderId: string) => {
+      const folder = folders.find(f => f.id === folderId)
+      if (folder) {
+        setInfoTarget(folder)
+        setInfoFolderStats(null)
+        setInfoLinkPath(null)
+      }
+    }
   }), [folders, expandedFolders, editMode])
 
   const handleUpdateFolder = async (folder: Folder, newName: string) => {

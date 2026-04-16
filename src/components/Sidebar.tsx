@@ -17,7 +17,10 @@ import {
   IconSort,
   IconCheck,
   IconSortDown,
-  IconSortUp
+  IconSortUp,
+  IconFolderPlus,
+  IconFolderCheck,
+  IconInfoCircle
 } from './icons/BootstrapIcons'
 
 interface SidebarProps {
@@ -100,6 +103,7 @@ const Sidebar = ({
   // Portrait 模式：各面板的選單狀態
   const [showPageMenu, setShowPageMenu] = useState(false)
   const [showMobileSortMenu, setShowMobileSortMenu] = useState(false)
+  const [showFolderMenu, setShowFolderMenu] = useState(false)
 
   // 排序狀態：sortBy 持久化，sortOrder 每次載入重置為 desc
   const [sortBy, setSortBy] = useState<'none' | 'updatedAt' | 'createdAt' | 'name'>(() => {
@@ -152,10 +156,13 @@ const Sidebar = ({
       if (showMobileSortMenu && !target.closest('.mobile-nav-sort-container')) {
         setShowMobileSortMenu(false)
       }
+      if (showFolderMenu && !target.closest('.mobile-nav-menu-container')) {
+        setShowFolderMenu(false)
+      }
     }
     document.addEventListener('click', handleClickOutside)
     return () => document.removeEventListener('click', handleClickOutside)
-  }, [showPageMenu, showMobileSortMenu])
+  }, [showPageMenu, showMobileSortMenu, showFolderMenu])
 
   // 觸發 FolderTree 刷新
   const triggerFolderRefresh = () => {
@@ -346,8 +353,61 @@ const Sidebar = ({
                     <ChevronDown size={16} />
                   </button>
                 </div>
-                {/* 右側佔位（保持 header 置中對稱；New Folder / Select 已移至 FolderTree 底部） */}
-                <div className="mobile-nav-right" />
+                {/* 右側：Folder 選單 */}
+                <div className="mobile-nav-right">
+                  <div className="mobile-nav-menu-container">
+                    <button
+                      className="mobile-nav-menu-btn"
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        setShowFolderMenu(!showFolderMenu)
+                      }}
+                      title="More options"
+                    >
+                      <IconThreeDots size={24} />
+                    </button>
+                    {showFolderMenu && (
+                      <div className="mobile-nav-menu">
+                        <button
+                          className="sort-menu-item"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setShowFolderMenu(false)
+                            // 在 selectedFolder 下新增子 folder，fallback 到 root
+                            folderTreeRef.current?.createSubfolder(internalSelectedFolderId)
+                          }}
+                        >
+                          <IconFolderPlus size={24} className="menu-icon" />
+                          New Subfolder
+                        </button>
+                        <button
+                          className="sort-menu-item"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setShowFolderMenu(false)
+                            folderTreeRef.current?.enterEditMode(internalSelectedFolderId ?? undefined)
+                          }}
+                        >
+                          <IconFolderCheck size={24} className="menu-icon" />
+                          Select
+                        </button>
+                        <button
+                          className="sort-menu-item"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setShowFolderMenu(false)
+                            if (internalSelectedFolderId) {
+                              folderTreeRef.current?.showFolderInfo(internalSelectedFolderId)
+                            }
+                          }}
+                        >
+                          <IconInfoCircle size={24} className="menu-icon" />
+                          Info
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
               </div>
             )}
             <FolderTree
@@ -494,11 +554,24 @@ const Sidebar = ({
                           onClick={(e) => {
                             e.stopPropagation()
                             setShowPageMenu(false)
-                            pageListRef.current?.enterEditMode()
+                            pageListRef.current?.enterEditMode(selectedPage?.id)
                           }}
                         >
                           <IconFileEarmarkCheck size={24} className="menu-icon" />
                           Select
+                        </button>
+                        <button
+                          className="sort-menu-item"
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            setShowPageMenu(false)
+                            if (internalSelectedFolderId) {
+                              folderTreeRef.current?.showFolderInfo(internalSelectedFolderId)
+                            }
+                          }}
+                        >
+                          <IconInfoCircle size={24} className="menu-icon" />
+                          Info
                         </button>
                       </div>
                     )}

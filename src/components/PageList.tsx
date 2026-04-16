@@ -58,7 +58,7 @@ interface PageListProps {
 
 // Ref 介面，讓外部可以控制 Edit Mode
 export interface PageListRef {
-  enterEditMode: () => void
+  enterEditMode: (preSelectId?: string) => void
   exitEditMode: () => void
   isInEditMode: () => boolean
 }
@@ -131,7 +131,10 @@ const PageList = forwardRef<PageListRef, PageListProps>(({
 
   // 暴露 ref 方法給外部
   useImperativeHandle(ref, () => ({
-    enterEditMode: () => editMode.enterEditMode('page'),
+    enterEditMode: (preSelectId?: string) => {
+      editMode.enterEditMode('page')
+      if (preSelectId) editMode.toggleSelect(preSelectId)
+    },
     exitEditMode: () => editMode.exitEditMode(),
     isInEditMode: () => editMode.isEditMode
   }), [editMode])
