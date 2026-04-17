@@ -2,7 +2,7 @@
 
 # PenPage
 
-**AI meets Markdown. You need PenPage.**
+**AI speaks Markdown. You got PenPage.**
 
 Write beautifully. Stay private. Go anywhere.
 

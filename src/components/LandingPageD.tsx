@@ -9,7 +9,7 @@ interface LandingPageDProps {
 const i18n = {
   en: {
     // Hero
-    tagline: 'AI meets Markdown. You need PenPage.',
+    tagline: 'AI speaks Markdown. You got PenPage.',
     subtitle: 'Write beautifully. Stay private. Go anywhere.',
     startBtn: 'Get Started',
     installBtn: 'Install APP',
@@ -45,7 +45,7 @@ const i18n = {
   },
   zh: {
     // Hero
-    tagline: 'AI meets Markdown. You need PenPage.',
+    tagline: 'AI speaks Markdown. You got PenPage.',
     subtitle: 'Write beautifully. Stay private. Go anywhere.',
     startBtn: '開始使用',
     installBtn: '安裝 APP',

@@ -15,7 +15,7 @@ const LandingPage = ({ onGetStarted }: LandingPageProps) => {
         <div className="hero-content">
           <img src="/ppage2.png" alt="PenPage Logo" className="hero-logo" />
           <h1 className="hero-title">
-            AI meets Markdown. <span className="highlight">You need PenPage.</span>
+            AI speaks Markdown. <span className="highlight">You got PenPage.</span>
           </h1>
           <p className="hero-subtitle">
             Fast. Clean. Safe. Anywhere.
